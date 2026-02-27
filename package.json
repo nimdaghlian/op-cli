@@ -1,0 +1,14 @@
+{
+  "name": "op-cli",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Command-line interface for the Octothorpes Protocol",
+  "bin": {
+    "op": "./bin/op.js"
+  },
+  "dependencies": {
+    "commander": "^13.0.0",
+    "dotenv": "^16.4.0",
+    "octothorpes": "file:../octothorp.es/packages/core"
+  }
+}
