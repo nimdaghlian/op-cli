@@ -3,6 +3,7 @@
 import { program } from 'commander'
 import { init } from '../commands/init.js'
 import { get } from '../commands/get.js'
+import { fast } from '../commands/fast.js'
 
 program
   .name('op')
@@ -28,5 +29,11 @@ program
   .option('--when <filter>', 'Date filter (recent, after-DATE, before-DATE, between-DATE-and-DATE)')
   .option('--raw', 'Output raw JSON')
   .action(get)
+
+program
+  .command('fast <method> [value]')
+  .description('Fast SPARQL queries (terms, term <name>, domains, domain <uri>, backlinks, bookmarks)')
+  .option('--raw', 'Output raw JSON')
+  .action(fast)
 
 program.parse()
