@@ -10,5 +10,8 @@
     "commander": "^13.0.0",
     "dotenv": "^16.4.0",
     "octothorpes": "file:../octothorp.es/packages/core"
+  },
+  "devDependencies": {
+    "vitest": "^4.0.18"
   }
 }
