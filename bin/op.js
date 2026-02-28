@@ -36,6 +36,7 @@ program
 program
   .command('fast <method> [value]')
   .description('Fast SPARQL queries (terms, term <name>, domains, domain <uri>, backlinks, bookmarks)')
+  .option('--limit <n>', 'Max results (default: 100)')
   .option('--raw', 'Output raw JSON')
   .action(fast)
 

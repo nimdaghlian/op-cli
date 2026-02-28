@@ -22,8 +22,11 @@ export async function fast(method, value, options) {
     ? await client.getfast[method](value)
     : await client.getfast[method]()
 
+  const limit = parseInt(options.limit) || 100
+
   if (options.raw) {
-    console.log(JSON.stringify(result, null, 2))
+    const trimmed = Array.isArray(result) ? result.slice(0, limit) : result
+    console.log(JSON.stringify(trimmed, null, 2))
     return
   }
 
@@ -32,7 +35,7 @@ export async function fast(method, value, options) {
     for (const [key, bindings] of Object.entries(result)) {
       if (Array.isArray(bindings) && bindings.length > 0) {
         console.log(`\n${key}:\n`)
-        console.log(formatBindings(bindings))
+        console.log(formatBindings(bindings.slice(0, limit)))
       } else if (Array.isArray(bindings)) {
         console.log(`\n${key}: (none)`)
       }
@@ -41,5 +44,5 @@ export async function fast(method, value, options) {
   }
 
   // Everything else returns a flat bindings array
-  console.log(formatBindings(result))
+  console.log(formatBindings(result.slice(0, limit)))
 }
