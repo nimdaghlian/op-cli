@@ -5,6 +5,7 @@ import { init } from '../commands/init.js'
 import { get } from '../commands/get.js'
 import { fast } from '../commands/fast.js'
 import { index } from '../commands/index.js'
+import { harmonize } from '../commands/harmonize.js'
 
 program
   .name('op')
@@ -42,5 +43,12 @@ program
   .description('Index a page')
   .option('--harmonizer <name>', 'Harmonizer to use (default, openGraph, ghost, or URL)')
   .action(index)
+
+program
+  .command('harmonize <url>')
+  .description('Fetch and harmonize a URL without indexing (inspect extracted metadata)')
+  .option('--harmonizer <name>', 'Harmonizer to use (default, openGraph, ghost, or URL)', 'default')
+  .option('--raw', 'Output raw JSON')
+  .action(harmonize)
 
 program.parse()
