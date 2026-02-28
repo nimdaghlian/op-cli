@@ -4,6 +4,7 @@ import { program } from 'commander'
 import { init } from '../commands/init.js'
 import { get } from '../commands/get.js'
 import { fast } from '../commands/fast.js'
+import { index } from '../commands/index.js'
 
 program
   .name('op')
@@ -35,5 +36,11 @@ program
   .description('Fast SPARQL queries (terms, term <name>, domains, domain <uri>, backlinks, bookmarks)')
   .option('--raw', 'Output raw JSON')
   .action(fast)
+
+program
+  .command('index <uri>')
+  .description('Index a page')
+  .option('--harmonizer <name>', 'Harmonizer to use (default, openGraph, ghost, or URL)')
+  .action(index)
 
 program.parse()
