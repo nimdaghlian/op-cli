@@ -6,6 +6,7 @@ import { get } from '../commands/get.js'
 import { fast } from '../commands/fast.js'
 import { index } from '../commands/index.js'
 import { harmonize } from '../commands/harmonize.js'
+import { register } from '../commands/register.js'
 
 program
   .name('op')
@@ -50,5 +51,10 @@ program
   .option('--harmonizer <name>', 'Harmonizer to use (default, openGraph, ghost, or URL)', 'default')
   .option('--raw', 'Output raw JSON')
   .action(harmonize)
+
+program
+  .command('register <domain>')
+  .description('Register a domain as a verified origin')
+  .action(register)
 
 program.parse()
