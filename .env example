@@ -1,0 +1,8 @@
+sparql_endpoint=http://0.0.0.0:7878
+sparql_user=
+sparql_password=
+instance=http://localhost:5173/
+fastmail_password=coolpassword
+server_name="Octothorpes Local"
+dashboard_thorpe="octothorpe-news"
+badge_image="badge.png"
