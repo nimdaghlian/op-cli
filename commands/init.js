@@ -49,7 +49,6 @@ export async function init(options) {
   // Write op.config.json
   const config = {
     instance,
-    profile: {},
     termColor: 'magenta',
   }
   writeFileSync(configPath, JSON.stringify(config, null, 2) + '\n')
