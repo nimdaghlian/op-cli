@@ -4,7 +4,10 @@ export async function index(uri, options) {
   const { client } = await loadConfig()
 
   const indexOptions = {}
-  if (options.harmonizer) indexOptions.harmonizer = options.harmonizer
+  // --as is an alias for --harmonizer (the relay's /index?as= vocabulary).
+  // An explicit --harmonizer wins when both are given.
+  const harmonizer = options.harmonizer || options.as
+  if (harmonizer) indexOptions.harmonizer = harmonizer
 
   try {
     const result = await client.indexSource(uri, indexOptions)

@@ -31,7 +31,7 @@ program
   .option('--limit <n>', 'Max results (default: 100)')
   .option('--offset <n>', 'Skip N results')
   .option('--when <filter>', 'Date filter (recent, after-DATE, before-DATE, between-DATE-and-DATE)')
-  .option('--as <format>', 'Render via a core publisher (e.g. rss) or debug format (debug, multipass)')
+  .option('--as <format>', 'Output format: render via a core publisher (e.g. rss) or debug format (debug, multipass). Not the harmonizer alias — see `op index --as`')
   .option('--raw', 'Output raw JSON')
   .action(get)
 
@@ -46,12 +46,14 @@ program
   .command('index <uri>')
   .description('Index a page')
   .option('--harmonizer <name>', 'Harmonizer to use (default, openGraph, ghost, or URL)')
+  .option('--as <name>', "Alias for --harmonizer, matching the relay's /index?as= param (unlike `op get --as`, which picks an output format)")
   .action(index)
 
 program
   .command('harmonize <url>')
   .description('Fetch and harmonize a URL without indexing (inspect extracted metadata)')
-  .option('--harmonizer <name>', 'Harmonizer to use (default, openGraph, ghost, or URL)', 'default')
+  .option('--harmonizer <name>', 'Harmonizer to use (default, openGraph, ghost, or URL)')
+  .option('--as <name>', "Alias for --harmonizer, matching the relay's /index?as= param (unlike `op get --as`, which picks an output format)")
   .option('--raw', 'Output raw JSON')
   .action(harmonize)
 

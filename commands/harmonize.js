@@ -4,7 +4,8 @@ import { formatBlobjects } from '../lib/format.js'
 export async function harmonize(url, options) {
   const { client, config } = await loadConfig()
   const termColor = config.termColor || 'magenta'
-  const harmonizerName = options.harmonizer || 'default'
+  // --as is an alias for --harmonizer; an explicit --harmonizer wins.
+  const harmonizerName = options.harmonizer || options.as || 'default'
 
   try {
     const response = await fetch(url)
