@@ -9,6 +9,7 @@ import { harmonize } from '../commands/harmonize.js'
 import { register } from '../commands/register.js'
 import { describe } from '../commands/describe.js'
 import { publish } from '../commands/publish.js'
+import { link } from '../commands/link.js'
 
 program
   .name('op')
@@ -85,5 +86,11 @@ program
   .command('describe <uri>')
   .description('List all predicate/object pairs for a URI (debug)')
   .action(describe)
+
+program
+  .command('link <subject> <object>')
+  .description('Write a link relationship from subject URL to object URL (e.g. op link https://a.com/p https://b.com/q --st aliasOf)')
+  .option('--st <subtype>', 'Link subtype (e.g. bookmark, cite, aliasOf). Default: link')
+  .action(link)
 
 program.parse()

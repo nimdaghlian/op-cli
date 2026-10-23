@@ -20,6 +20,7 @@ Defined in `bin/op.js` (commander):
 - `op index <uri>` — index a page (`--harmonizer` / `--as` alias)
 - `op harmonize <url>` — fetch + harmonize without indexing
 - `op register <domain>` — write verified-origin triples via core
+- `op link <subject> <object>` — write a link relationship via core's `createIndexer().handleMention` (`--st <subtype>`, default `link`)
 - `op describe <uri>` — dump all triples about a URI
 - `op publish <publisher> [what] [by]` — render a query (or `--uri <url>`) through a core publisher
 
