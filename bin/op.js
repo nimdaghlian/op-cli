@@ -7,6 +7,7 @@ import { fast } from '../commands/fast.js'
 import { index } from '../commands/index.js'
 import { harmonize } from '../commands/harmonize.js'
 import { register } from '../commands/register.js'
+import { describe } from '../commands/describe.js'
 
 program
   .name('op')
@@ -57,5 +58,10 @@ program
   .command('register <domain>')
   .description('Register a domain as a verified origin')
   .action(register)
+
+program
+  .command('describe <uri>')
+  .description('List all predicate/object pairs for a URI (debug)')
+  .action(describe)
 
 program.parse()
