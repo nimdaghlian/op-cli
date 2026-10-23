@@ -31,6 +31,7 @@ program
   .option('--limit <n>', 'Max results (default: 100)')
   .option('--offset <n>', 'Skip N results')
   .option('--when <filter>', 'Date filter (recent, after-DATE, before-DATE, between-DATE-and-DATE)')
+  .option('--as <format>', 'Render via a core publisher (e.g. rss) or debug format (debug, multipass)')
   .option('--raw', 'Output raw JSON')
   .action(get)
 

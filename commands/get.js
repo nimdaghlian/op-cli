@@ -33,6 +33,18 @@ export async function get(what, by, options) {
   if (options.offset) queryOptions.offset = options.offset
   if (options.when) queryOptions.when = options.when
 
+  // --as hands the results to a core publisher (e.g. rss) or the core debug
+  // formats (debug, multipass). Publisher output is printed as-is.
+  if (options.as) {
+    const rendered = await client.get({ what, by, as: options.as, ...queryOptions })
+    if (typeof rendered === 'string') {
+      console.log(rendered)
+    } else {
+      console.log(JSON.stringify(rendered, null, 2))
+    }
+    return
+  }
+
   const result = await client.get({ what, by, ...queryOptions })
 
   if (options.raw) {
