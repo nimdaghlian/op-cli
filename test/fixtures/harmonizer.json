@@ -1,0 +1,6 @@
+{
+  "id": "harmonizer/fixture",
+  "type": "harmonizer",
+  "mode": "html",
+  "schema": { "subject": { "s": "source" } }
+}

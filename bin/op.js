@@ -49,6 +49,7 @@ program
   .description('Index a page')
   .option('--harmonizer <name>', 'Harmonizer to use (default, openGraph, ghost, or URL)')
   .option('--as <name>', "Alias for --harmonizer, matching the relay's /index?as= param (unlike `op get --as`, which picks an output format)")
+  .option('--harmonizer-file <path>', 'Load a harmonizer definition from a local JSON file and pass it inline (wins over --harmonizer/--as)')
   .action(index)
 
 program
