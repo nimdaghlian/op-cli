@@ -12,7 +12,7 @@ import { describe } from '../commands/describe.js'
 program
   .name('op')
   .description('Octothorpes Protocol CLI')
-  .version('0.1.0')
+  .version('0.2.0')
 
 program
   .command('init')
